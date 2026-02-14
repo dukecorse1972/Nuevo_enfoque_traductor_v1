@@ -1,0 +1,50 @@
+seed: 42
+
+# Manifests produced by scripts/preprocess.py
+train_manifest: artifacts/processed/manifests/train.npz
+val_manifest: artifacts/processed/manifests/val.npz
+test_manifest: artifacts/processed/manifests/test.npz
+
+# Training
+batch_size: 32
+epochs: 40
+lr: 0.001
+weight_decay: 0.001
+early_stopping_patience: 8
+hidden_dim: 128
+dropout: 0.2
+tiny: true
+num_classes: 21  # N signs + 1 background
+
+checkpoint_dir: artifacts/checkpoints
+log_dir: artifacts/logs
+eval_dir: artifacts/eval
+
+# Demo runtime
+sequence_length: 64
+input_dim: 384  # T x (V * 4), with V=96? adapt after preprocess build
+energy_threshold: 0.006
+confidence_threshold: 0.55
+smoothing_k: 5
+labels:
+  - background
+  - hola
+  - adios
+  - gracias
+  - por_favor
+  - si
+  - no
+  - familia
+  - madre
+  - padre
+  - hermano
+  - comer
+  - beber
+  - agua
+  - casa
+  - trabajo
+  - escuela
+  - donde
+  - que
+  - quien
+  - ayuda
